@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Checkout Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 589 lugx gaming
+
+https://templatemo.com/tm-589-lugx-gaming
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo1">
+                        <!--<img src="assets/images/logo.png" alt="" style="width: 158px;">-->
+                        <b>NGM Tech Growth</b>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html" class="">Home</a></li>
+                      <li><a href="about-us.html" class="">About Us</a></li>
+                      <li><a href="shop.html">Our Shop</a></li>
+                      <div class="nav-item dropdown">
+                        <span style="cursor: pointer;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</span>
+                        <div class="dropdown-menu m-0">
+                            <a href="cancellation-refund.html" class="dropdown-item">Cancellation & Refund</a>
+                            <a href="terms-conditions.html" class="dropdown-item">Terms & Conditions</a>
+                            <a href="privacy-policy.html" class="dropdown-item">Privacy Policy</a>
+                            <a href="delivery-shipping.html" class="dropdown-item">Shipping & Delivery</a>
+                            <!--<a href="404.html" class="dropdown-item">404 Page</a>-->
+                        </div>
+                    </div>
+                      <!--<li><a href="the-curse-of-the-clockmaker.html">Product Details</a></li>-->
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <!--<li><a href="#">Sign In</a></li>-->
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3>Checkout</h3>
+          <span class="breadcrumb"><a href="index.html">Home</a> > Checkout</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section trending">
+    <div class="container">
+      <!-- Checkout Form -->
+      <form id="checkoutForm">
+        <!-- Name -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control1" id="name" required/>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="mb-3">
+          <label for="contactNumber" class="form-label">Contact Number</label>
+          <input type="tel" class="form-control1" id="contactNumber" required/>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control1" id="email" required/>
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+          <label for="address" class="form-label">Your Address</label>
+          <textarea class="form-control1" id="address" rows="3" required></textarea>
+        </div>
+
+        <!-- Book Category Selection -->
+        <div class="mb-3">
+          <div class="checkout-dropdown">
+            <label for="category">Select a Category:</label>
+            <select id="category" onchange="updateDropdown()">
+              <option value="SciFi">SciFi</option>
+              <option value="Storytelling">Storytelling</option>
+              <option value="Mystery">Mystery</option>
+              <option value="SliceofLife">SliceofLife</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Adventure">Adventure</option>
+            </select>
+          
+            <label for="options">Select a Book:</label>
+            <select id="options">
+              <option value="The Curse of the Clockmaker">The Curse of the Clockmaker</option>
+              <option value="The Lost Compass">The Lost Compass</option>
+              <option value="The Watcher in the Window">The Watcher in the Window</option>
+              <!-- Add other books here -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Payment Method (Only Cash on Delivery) -->
+        <div class="mb-3">
+          <label for="payment" class="form-label">Payment Method</label>
+          <input type="text" class="form-control1" id="payment" value="Cash on Delivery" disabled>
+        </div>
+
+        <hr>
+
+        <button class="open-popup-btn buybtn1" id="openPopupBtn" type="submit">Buy Now</button>
+      </form>
+
+      <!-- The Popup -->
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="close" id="closePopupBtn">&times;</span>
+          <h2>Purchase successful</h2>
+          <p>Thank you for purchasing our book!</p>
+          <p><a href="index.html">Click here</a> to return to the Home Page</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+    
+
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-column">
+          <h4 class="footer-h4">Get In Touch</h4>
+          <ul>
+              
+              <li><i class="fa fa fa-map-marker-alt me-2"></i> 101, Mastermind I, Goregaon (E), Royal Palms, Mumbai, Maharashtra, 400065</li>
+              <li><a href="mailto:info@ngmtechgrowth.com">info@ngmtechgrowth.com</a></li>
+              <!--<li><a href="tel:+919892018171">+91 9892018171</a></li>-->
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h4 class="footer-h4">Quick Links</h4>
+          <ul>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="shop.html">Shop</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h4 class="footer-h4">Popular Links</h4>
+          <ul>
+              <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+              <li><a href="cancellation-refund.html">Cancellation & Refund</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="delivery-shipping.html">Delivery & Shipping</a></li>
+          </ul>
+      </div>
+      <div class="footer-column buy-button">
+          <h4 class="footer-h4">Buy Our Books</h4>
+          <p>Click below to buy our books.</p>
+          <a href="checkout.html">Buy Now</a>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      &copy; NGM Tech Growth Pvt Ltd, All Rights Reserved.
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the elements
+        const openPopupBtn = document.getElementById('openPopupBtn');
+        const popup = document.getElementById('popup');
+        const closePopupBtn = document.getElementById('closePopupBtn');
+        const checkoutForm = document.getElementById('checkoutForm');
+
+        // When the "Buy Now" button is clicked
+        openPopupBtn.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Check if the form is valid
+            if (checkoutForm.checkValidity()) {
+                popup.style.display = 'block'; // Show the popup
+            } else {
+                checkoutForm.reportValidity(); // Show validation messages
+            }
+        });
+
+        // When the user clicks on <span> (x), close the popup
+        closePopupBtn.addEventListener('click', function () {
+            popup.style.display = 'none'; // Hide the popup
+        });
+
+        // When the user clicks anywhere outside the popup, close it
+        window.addEventListener('click', function (event) {
+            if (event.target === popup) {
+                popup.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+
+<script>
+  // Data for dropdowns
+  const data = {
+    SciFi: ["City of Holo", "Echoes of the Red Planet", "The Final Upload", "The Quantum Painter"],
+    Fiction: ["The Another Side of the Stars", "The Tower of the Echoes", "Starlight Bandits"],
+    Adventure: ["The Old Compass", "The Undersea Cathedral", "The Final Map", "The Island of Whispering Sand", "The Seven Trials of Kaylon"],
+    Storytelling: ["The Curse of the Clockmaker", "The Kingdom of the Shadows", "The Singing Stones", "The Forest Weeping", "The Lunar Librarian"],
+    Mystery: ["The Secret of the Ink", "The Ghost Passenger", "The Forgotten Orphanage"],
+    SliceofLife: ["The Paper Crane Cafe", "The Watcher in the Window", "The Hundredth Sunrise", "The Hidden Garden"],
+  };
+
+  // Function to update the options dropdown based on selected category
+  function updateDropdown() {
+    const category = document.getElementById("category").value;
+    const optionsDropdown = document.getElementById("options");
+
+    // Clear existing options
+    optionsDropdown.innerHTML = '<option value="" enabled selected>-- Choose an Option --</option>';
+
+    // Populate dropdown with relevant options
+    if (data[category]) {
+      data[category].forEach(item => {
+        const option = document.createElement("option");
+        option.value = item.toLowerCase();
+        option.textContent = item;
+        optionsDropdown.appendChild(option);
+      });
+    }
+  }
+</script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+</html>
