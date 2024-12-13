@@ -1,0 +1,485 @@
+/**
+ * Owl Carousel v2.3.4
+ * Copyright 2013-2018 David Deutsch
+ * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
+ */
+/*
+ *  Owl Carousel - Core
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1; }
+  .owl-carousel .owl-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
+    /* fix firefox animation glitch */ }
+  .owl-carousel .owl-stage:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0; }
+  .owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+    /* fix for flashing background */
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  .owl-carousel .owl-wrapper,
+  .owl-carousel .owl-item {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0); }
+  .owl-carousel .owl-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; }
+  .owl-carousel .owl-item img {
+    display: block;
+    width: 100%; }
+  .owl-carousel .owl-nav.disabled,
+  .owl-carousel .owl-dots.disabled {
+    display: none; }
+  .owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next,
+  .owl-carousel .owl-dot {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .owl-carousel .owl-nav button.owl-prev,
+  .owl-carousel .owl-nav button.owl-next,
+  .owl-carousel button.owl-dot {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0 !important;
+    font: inherit; }
+  .owl-carousel.owl-loaded {
+    display: block; }
+  .owl-carousel.owl-loading {
+    opacity: 0;
+    display: block; }
+  .owl-carousel.owl-hidden {
+    opacity: 0; }
+  .owl-carousel.owl-refresh .owl-item {
+    visibility: hidden; }
+  .owl-carousel.owl-drag .owl-item {
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .owl-carousel.owl-grab {
+    cursor: move;
+    cursor: grab; }
+  .owl-carousel.owl-rtl {
+    direction: rtl; }
+  .owl-carousel.owl-rtl .owl-item {
+    float: right; }
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block; }
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+  animation-duration: 1000ms;
+  animation-fill-mode: both; }
+
+.owl-carousel .owl-animated-in {
+  z-index: 0; }
+
+.owl-carousel .owl-animated-out {
+  z-index: 1; }
+
+.owl-carousel .fadeOut {
+  animation-name: fadeOut; }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  transition: height 500ms ease-in-out; }
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item {
+  /**
+			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+			calculation of the height of the owl-item that breaks page layouts
+		 */ }
+  .owl-carousel .owl-item .owl-lazy {
+    opacity: 0;
+    transition: opacity 400ms ease; }
+  .owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+    max-height: 0; }
+  .owl-carousel .owl-item img.owl-lazy {
+    transform-style: preserve-3d; }
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000; }
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform 100ms ease; }
+
+.owl-carousel .owl-video-play-icon:hover {
+  -ms-transform: scale(1.3, 1.3);
+      transform: scale(1.3, 1.3); }
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none; }
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease; }
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%; }
+
+  .popup-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+#checkoutForm {
+  margin-left: 25%;
+  width: 50%; /* Set the form width to 50% */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  margin-bottom: 8px;
+  text-align: center; /* Align the labels to the center */
+}
+
+.form-control1 {
+  display: block;
+  width: 100%; /* Input fields take full width of the form */
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .375rem;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+textarea.form-control1 {
+  resize: none; /* Prevent resizing of the textarea */
+}
+/* Basic styling for the header and navbar */
+
+
+.main-nav .nav li {
+  position: relative;
+  margin-right: 20px;
+}
+
+.main-nav .nav a {
+  color: #fff;
+  text-decoration: none;
+  
+  display: inline-block;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+/* Hover effect for the links */
+.main-nav .nav a:hover {
+  color: #f8f9fa; /* Change the color on hover */
+}
+
+/* Dropdown Button Styling */
+.nav-item .nav-link.dropdown-toggle {
+  cursor: pointer;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-item .nav-link.dropdown-toggle:hover {
+  /* Add hover background color */
+  color: #f8f9fa; /* Change text color on hover */
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  display: none; /* Hide the dropdown by default */
+  position: absolute;
+  background-color: rgb(1,113,249); /* Same as the navbar background */
+  top: 100%;
+  left: 0;
+  width: 200px;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Show the dropdown menu when it is active */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Dropdown Items Styling */
+.dropdown-item {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+  background-color: #555;
+}
+
+/* Dropdown menu positioning */
+.nav-item.dropdown {
+  position: relative;
+}
+/* Popup styles */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 60px;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align: center;
+}
+
+.popup .close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.popup .close:hover,
+.popup .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.popup p {
+  font-size: 18px;
+}
+
+.popup a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.popup a:hover {
+  text-decoration: underline;
+}
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-md-start {
+  text-align: start !important;
+}
+
+@media (min-width: 768px) {
+  .text-md-start {
+      text-align: left;
+  }
+}
+
+.footer {
+  background-color: #ffffff;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-column {
+  flex: 1 1 calc(25% - 20px);
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+}
+
+.footer .buy-button {
+  text-align: center;
+}
+
+.footer .buy-button a {
+  display: inline-block;
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.footer .buy-button a:hover {
+  background-color: #f3072e;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.footer-h4{
+color: #fff;
+}
+.logo1{
+  font-size: 30px;
+    color: #fff;
+    position: relative;
+    margin-bottom: 30px;
+}
+.buybtn1{
+  display: inline-block;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
